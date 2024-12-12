@@ -1,0 +1,99 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease;
+}
+
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 700px; /* Increased height for better visibility */
+    perspective: 1200px;
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px; /* Increased width for better visibility */
+    height: 600px; /* Increased height for better visibility */
+    transform-origin: center center -600px; /* Adjusted to maintain the perspective */
+    transform: translate(-50%, -50%) rotateY(0deg);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    opacity: 0.8;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #222;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-item.active {
+    transform: translate(-50%, -50%) rotateY(0deg) scale(1.3); /* Increased scale */
+    opacity: 1;
+    z-index: 10;
+}
+
+.carousel-item:nth-child(1) {
+    transform: translate(-50%, -50%) rotateY(0deg);
+}
+
+.carousel-item:nth-child(2) {
+    transform: translate(-50%, -50%) rotateY(120deg);
+}
+
+.carousel-item:nth-child(3) {
+    transform: translate(-50%, -50%) rotateY(240deg);
+}
+
+/* Controls */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 20;
+    border-radius: 50%;
+}
+
+#prev {
+    left: 20px;
+}
+
+#next {
+    right: 20px;
+}
